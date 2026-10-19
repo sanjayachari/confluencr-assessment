@@ -7,8 +7,8 @@ call, and records the result. See README for the reliability model.
 import asyncio
 import logging
 
-from app.config import Settings
-from app.repository import ClaimedTransaction, TransactionRepository
+from app.core.config import Settings
+from app.repository.transactions import ClaimedTransaction, TransactionRepository
 
 logger = logging.getLogger(__name__)
 

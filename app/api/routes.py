@@ -5,8 +5,8 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Path, Request, status
 
-from app.repository import TransactionRepository
-from app.schemas import (
+from app.repository.transactions import TransactionRepository
+from app.models.schemas import (
     ID_PATTERN,
     ErrorOut,
     HealthOut,
@@ -14,7 +14,7 @@ from app.schemas import (
     WebhookAck,
     WebhookPayload,
 )
-from app.worker import BackgroundProcessor
+from app.services.worker import BackgroundProcessor
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

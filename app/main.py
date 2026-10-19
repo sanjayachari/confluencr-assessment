@@ -7,11 +7,11 @@ import asyncpg
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from app.api import router
-from app.config import Settings, get_settings
-from app.db import create_pool, init_schema
-from app.repository import TransactionRepository
-from app.worker import BackgroundProcessor
+from app.api.routes import router
+from app.core.config import Settings, get_settings
+from app.core.db import create_pool, init_schema
+from app.repository.transactions import TransactionRepository
+from app.services.worker import BackgroundProcessor
 
 logger = logging.getLogger(__name__)
 

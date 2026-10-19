@@ -11,12 +11,12 @@ import asyncpg
 import httpx
 import pytest
 
-from app.config import Settings
-from app.db import init_schema
+from app.core.config import Settings
+from app.core.db import init_schema
 from app.main import create_app
-from app.repository import TransactionRepository
-from app.schemas import WebhookPayload
-from app.worker import BackgroundProcessor
+from app.repository.transactions import TransactionRepository
+from app.models.schemas import WebhookPayload
+from app.services.worker import BackgroundProcessor
 
 DB_URL = os.getenv("TEST_DATABASE_URL")
 pytestmark = pytest.mark.skipif(not DB_URL, reason="TEST_DATABASE_URL not set")

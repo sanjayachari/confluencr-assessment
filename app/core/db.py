@@ -4,7 +4,7 @@ from pathlib import Path
 
 import asyncpg
 
-from app.config import Settings
+from app.core.config import Settings
 
 logger = logging.getLogger(__name__)
 SCHEMA_PATH = Path(__file__).with_name("schema.sql")

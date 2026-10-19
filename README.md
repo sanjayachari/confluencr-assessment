@@ -68,13 +68,18 @@ ignored so the processor can evolve its schema without breaking us.
 ```
 app/
   main.py         app factory, lifespan (pool, schema, worker), error handlers
-  api.py          routes (thin: validate → repository → response)
-  schemas.py      Pydantic request/response models and all validation rules
-  repository.py   ALL SQL (insert, claim, mark processed, retry, …)
-  worker.py       background processor
-  db.py           connection pool + schema bootstrap
-  config.py       env-based settings
-  schema.sql      table + partial index
+  api/
+    routes.py     HTTP routes (thin: validate → repository → response)
+  core/
+    config.py     env-based settings
+    db.py         connection pool + schema bootstrap
+    schema.sql    table + partial index
+  models/
+    schemas.py    Pydantic request/response models and all validation rules
+  repository/
+    transactions.py  ALL SQL (insert, claim, mark processed, retry, …)
+  services/
+    worker.py     background processor
 tests/            unit tests (fake repo) + integration tests (real Postgres)
 ```
 

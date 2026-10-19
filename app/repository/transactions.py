@@ -10,7 +10,7 @@ from typing import Any
 
 import asyncpg
 
-from app.schemas import WebhookPayload
+from app.models.schemas import WebhookPayload
 
 
 @dataclass(frozen=True)
